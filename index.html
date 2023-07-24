@@ -261,21 +261,7 @@ $(document).ready(function() {
 });
 
 
-//INSERTING DATA INTO TABLE
 
-$("#dangnhap").click(function(){
-var db=openDatabase("itemDB","1.0","itemDB",65535); // itemDB is the database name
-var item=$("#email").val();
-var qty=$("#matkhau").val();
-db.transaction(function(transaction){
-var sql="INSERT INTO items(item,quantity) VALUES(?,?)";
-transaction.executeSql(sql,[item,qty],function(){
-},function(transaction,err){
-
-})
-})
-})
-//INSERTING DATA ENDS HERE
 
 </script>
 
