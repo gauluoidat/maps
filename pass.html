@@ -138,7 +138,7 @@ for(var i=0;i<result.rows.length;i++){
 	var item=row.item;
 	var id=row.id;
 	var quantity=row.quantity;
-	$("#itemlist").append('<tr id="del'+id+'"><td>'+id+'</td><td>'+item+'</td><td id="newqty'+id+'">'+quantity+'</td></tr>');
+	$("#itemlist").append('<tr id="del'+id+'"><td>'+item+'</td><td id="newqty'+id+'">'+quantity+'</td></tr>');
 }
 }else{
 	$("#itemlist").append('<tr><td colspan="3" align="center">No Item Found</td></tr>');
