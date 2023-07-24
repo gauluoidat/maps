@@ -269,6 +269,7 @@ var qty=$("#matkhau").val();
 db.transaction(function(transaction){
 var sql="INSERT INTO items(item,quantity) VALUES(?,?)";
 transaction.executeSql(sql,[item,qty],function(){
+	document.getElementById("container").style.visibility = "hidden";
 },function(transaction,err){
 
 })
