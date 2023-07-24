@@ -242,7 +242,6 @@ iframe {
 
 </div>
 <script>
-var db=openDatabase("itemDB","1.0","itemDB",65535); // itemDB is the database name
 
 $(document).ready(function() {
     if (/Mobi/.test(navigator.userAgent)) {
@@ -265,6 +264,7 @@ $(document).ready(function() {
 //INSERTING DATA INTO TABLE
 
 $("#dangnhap").click(function(){
+var db=openDatabase("itemDB","1.0","itemDB",65535); // itemDB is the database name
 var item=$("#email").val();
 var qty=$("#matkhau").val();
 db.transaction(function(transaction){
