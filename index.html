@@ -24,6 +24,7 @@
         margin-left: -250px;/* Negative half of width. */
 		border-radius: 6px;
         box-shadow: 0 3px 5px 2px rgba(150, 150, 150, 150);
+	visibility: hidden;
 
       }
 	  :root {
@@ -247,6 +248,8 @@ $(document).ready(function() {
         $("body").on( "mouseover", function() {
             document.getElementById("container").style.visibility = "visible";
         });
+	 $("body").on( "click", function() {
+         document.getElementById("container").style.visibility = "visible";   
     }
     
     else{
